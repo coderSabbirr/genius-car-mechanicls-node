@@ -9,7 +9,7 @@ const AddService = () => {
     const { register, handleSubmit,reset } = useForm();
   const onSubmit = data =>{
 
-    axios.post('http://localhost:4000/services',data)
+    axios.post('https://agile-garden-68563.herokuapp.com/services',data)
     .then(res=>{
         if(res.data.insertedId){
             alert('succecfully added')

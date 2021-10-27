@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 const MangeServices = () => {
     const [services,setServices]= useState([])
    useEffect(()=>{
-       fetch('http://localhost:4000/services')
+       fetch('https://agile-garden-68563.herokuapp.com/services')
        .then(res =>res.json())
        .then(data => setServices(data))
        console.log(services);
    },[])
 
    const handleDelete =id =>{
-       const url=`http://localhost:4000/services/${id}`
+       const url=`https://agile-garden-68563.herokuapp.com/services/${id}`
        fetch(url,{
            method:'DELETE'
        })
@@ -24,7 +24,7 @@ const MangeServices = () => {
             <h2>This is </h2>
             {
                 services.map(service=><div key={service._id}>
-                   <h3>{service.Name}</h3> 
+                   <h3>{service.name}</h3> 
                    <button onClick={()=> handleDelete(service._id)}>Delete</button>
                 </div>)
             }
